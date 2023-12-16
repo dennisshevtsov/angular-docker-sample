@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  angular-docker-sample:
+    container_name: angular-docker-sample # The name of nginx from Dockerfile
+    build:
+      context: .
+      dockerfile: ./Dockerfile # The path to Dockerfile. In this project it is in the same folder as docker-compose
+    ports:
+      - "5001:80" # Map 5001 port to 80 port. Nginx is configured to listen to 80 port in nginx.conf
