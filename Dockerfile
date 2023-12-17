@@ -19,4 +19,6 @@ COPY ["./nginx.conf", "/etc/nginx/nginx.conf"]
 
 # The first argument is the path to the build of this angular app.
 # It can be found in the angular.json.
-COPY --from=build ["/app/dist/angular-docker-sample", "/usr/share/nginx/html"]
+# The build is in /app folder (see line 2), so the path starts wiht /app.
+# Angular CLI copy files into the /browser folter, so it ends with /browser.
+COPY --from=build ["/app/dist/angular-docker-sample/browser", "/usr/share/nginx/html"]
